@@ -5,13 +5,13 @@ pipeline {
         
     stage('Git') {
       steps {
-        git 'https://github.com/maximilianoPizarro/delivery-ops-back'
+        git branch: 'main', url: 'https://github.com/maximilianoPizarro/delivery-ops-back'
       }
     }
      
     stage('Build') {
       steps {
-        sh 'mvn clean install -DskipTests'
+        sh 'mvnw clean install -DskipTests'
       }
     }      
         
