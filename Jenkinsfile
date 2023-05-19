@@ -1,9 +1,10 @@
 pipeline {
-  agent any
-  tools {
-      maven 'apache-maven-3.0.1' 
-  }
-        
+    agent {
+        node {
+            label 'nodo-jenkins'
+            customWorkspace '/workspace'
+        }
+    }
   stages {
         
     stage('Git') {
