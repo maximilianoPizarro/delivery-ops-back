@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'maven'
+            label 'nodejs'
             customWorkspace '/tmp/workspace/delivery-ops-back'
         }
     }
