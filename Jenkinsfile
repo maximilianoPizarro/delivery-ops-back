@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { docker 'maven:3.9.0-eclipse-temurin-11' } 
         
   stages {
         
@@ -11,7 +11,7 @@ pipeline {
      
     stage('Build') {
       steps {
-        sh "./mvnw clean install -DskipTests"
+        sh "mvn clean install -DskipTests"
       }
     }      
         
