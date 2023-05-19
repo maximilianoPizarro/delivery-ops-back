@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'nodo-jenkins'
+            label 'maven'
             customWorkspace '/workspace'
         }
     }
