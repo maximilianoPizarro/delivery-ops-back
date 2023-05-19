@@ -20,6 +20,12 @@ pipeline {
     }   
       
     stage('Build') {
+        agent {
+            node {
+                label 'nodejs'
+                customWorkspace '/tmp/workspace/delivery-ops-back'
+            }
+        }        
       steps {
         sh "mvn clean install -DskipTests"
       }
