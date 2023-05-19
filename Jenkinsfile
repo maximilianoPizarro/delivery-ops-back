@@ -1,16 +1,27 @@
-pipeline{    
-    agent any
-    options { 
-        skipDefaultCheckout()
-        disableConcurrentBuilds()
+pipeline {
+  agent any
+    
+  tools {nodejs "node"}
+    
+  stages {
+        
+    stage('Git') {
+      steps {
+        git 'https://github.com/maximilianoPizarro/delivery-ops-back'
+      }
     }
-    stages {
-
-        stage ("Git Clone") {
-            steps {
-                gitClone(https://github.com/maximilianoPizarro/delivery-ops-back, branch: "main")
-            }  
-        }
+     
+    stage('Build') {
+      steps {
+        sh 'npm install'
+      }
+    }  
+    
+            
+    stage('Build Maven') {
+      steps {
+        sh 'mvn clean install -DskipTests'
+      }
     }
+  }
 }
-
