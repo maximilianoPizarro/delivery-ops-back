@@ -14,8 +14,6 @@ pipeline{
                 gitClone(https://github.com/maximilianoPizarro/delivery-ops-back, branch: "main")
             }  
         }
-        
-        }
     }
 }
 
