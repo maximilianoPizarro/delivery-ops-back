@@ -1,5 +1,7 @@
-node {
-
+pipeline{    
+    agent any
+    
+    stages {
       stage("Clone the project") {
         git branch: 'main', url: 'https://github.com/maximilianoPizarro/delivery-ops-back'
       }
@@ -9,12 +11,14 @@ node {
       }
 
       stage("Tests and Deployment") {
-        stage("Runing unit tests") {
+        steps ("Runing unit tests") {
           sh "./mvnw clean test"
         }
-        stage("Deployment") {
+       stage("Deployment") {
           sh 'nohup java -jar target/*.war &'
         }
       }
+        
+    }   
 
 }
