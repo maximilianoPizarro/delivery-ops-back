@@ -1,5 +1,5 @@
 node {
- stages {    
+
       stage("Clone the project") {
         git branch: 'main', url: 'https://github.com/maximilianoPizarro/delivery-ops-back'
       }
@@ -16,5 +16,5 @@ node {
           sh 'nohup java -jar target/*.war &'
         }
       }
- }  
+
 }
