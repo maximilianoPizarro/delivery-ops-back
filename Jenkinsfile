@@ -4,9 +4,6 @@ pipeline{
         skipDefaultCheckout()
         disableConcurrentBuilds()
     }
-    environment {
-        APP_TEMPLATE = "openshift/template.yml"
-    }
     stages {
 
         stage ("Git Clone") {
