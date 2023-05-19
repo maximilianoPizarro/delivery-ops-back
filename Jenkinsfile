@@ -22,7 +22,7 @@ pipeline {
     stage('Build') {
         agent {
             node {
-                label 'nodejs'
+                label 'maven'
                 customWorkspace '/tmp/workspace/delivery-ops-back'
             }
         }        
